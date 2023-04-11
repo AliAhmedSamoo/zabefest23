@@ -9,9 +9,9 @@ app.use(cors())
 
 
 app.post("/data", async (req, res) => {
-  const { Reistration_Fees,	Module,	Module_Head,Module_Co_Head,	Module_Advisor,Email,Whatsapp_number } = req.body;
+  const { fees,	numberofparticipant,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother } = req.body;
 
-  console.log(req.body);
+  // console.log(req.body);
 
 
 
@@ -42,10 +42,10 @@ app.post("/data", async (req, res) => {
   await googleSheets.spreadsheets.values.append({
     auth,
     spreadsheetId,
-    range: "Sheet1!B:F",
+    range: "Modules!A:L",
     valueInputOption: "USER_ENTERED",
     resource: {
-      values: [["=INDIRECT(ADDRESS(ROW()-1,COLUMN()))+1",Reistration_Fees,	Module,	Module_Head,Module_Co_Head,	Module_Advisor,Email,Whatsapp_number]],
+      values: [["=INDIRECT(ADDRESS(ROW()-1,COLUMN()))+1",fees,	numberofparticipant,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother]],
     },
   });
 
@@ -56,7 +56,7 @@ app.post("/data", async (req, res) => {
 app.post("/ambassador", async (req, res) => {
   const { Ambrassadorname,	Ambrassadorid,	Ambrassadoruniversity,Ambrassadorprogram,	Ambrassadoryear,Ambrassadorwhatsapp,Ambrassadoremail,Ambrassadorimage } = req.body;
 
-  // console.log(req.body);
+  console.log(req.body);
 
 
 
