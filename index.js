@@ -87,7 +87,7 @@ app.post("/ambassador", async (req, res) => {
   await googleSheets.spreadsheets.values.append({
     auth,
     spreadsheetId,
-    range: "Sheet2!A:I",
+    range: "Ambassadors!A:I",
     valueInputOption: "USER_ENTERED",
     resource: {
       // values: [["=INDIRECT(ADDRESS(ROW()-1,COLUMN()))+1", "dsf"]],
