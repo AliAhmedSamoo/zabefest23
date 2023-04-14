@@ -42,10 +42,10 @@ app.post("/data", async (req, res) => {
   await googleSheets.spreadsheets.values.append({
     auth,
     spreadsheetId,
-    range: "Modules!A:L",
+    range: "Modules!A:R",
     valueInputOption: "USER_ENTERED",
     resource: {
-      values: [["=INDIRECT(ADDRESS(ROW()-1,COLUMN()))+1","to be entered",	numberofparticipant,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother]],
+      values: [["=INDIRECT(ADDRESS(ROW()-1,COLUMN()))+1",fees,	numberofparticipant,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother]],
     },
   });
 
