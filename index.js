@@ -2,14 +2,32 @@ const express = require("express");
 const { google } = require("googleapis");
 const cors = require("cors");
 const app = express();
+require('./db/connection');
+const Modules = require("./modulesdb/modules");
+const { name } = require("ejs");
 
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors()) 
 
 
+app.post("/testdb", async (req, res) => {
+
+console.log(req.body)
+ const {name,name2}=req.body;
+
+const regmodule = new Modules({ name,name2 });
+    await regmodule.save()
+
+
+    res.send("Successfully submitted! Thank you!");
+
+
+});
+
+
 app.post("/data", async (req, res) => {
-  const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother } = req.body;
+  const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityname:universityisother } = req.body;
 
   // console.log(req.body);
 
@@ -17,7 +35,8 @@ app.post("/data", async (req, res) => {
 
 
 
-
+  const regmodule = new Modules({ fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother });
+  await regmodule.save()
 
 
 
