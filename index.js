@@ -29,7 +29,7 @@ const regmodule = new Modules({ name,name2 });
 app.post("/data", async (req, res) => {
   const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityname:universityisother } = req.body;
 
-  // console.log(req.body);
+  console.log(req.body);
 
 
 
