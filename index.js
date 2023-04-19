@@ -4,7 +4,10 @@ const cors = require("cors");
 const app = express();
 require('./db/connection');
 const Modules = require("./modulesdb/modules");
-const { name } = require("ejs");
+const axios = require('axios');
+
+const SibApiV3Sdk = require('sib-api-v3-sdk');
+const defaultClient = SibApiV3Sdk.ApiClient.instance;
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -14,10 +17,49 @@ app.use(cors())
 app.post("/testdb", async (req, res) => {
 
 console.log(req.body)
- const {name,name2}=req.body;
+ 
 
-const regmodule = new Modules({ name,name2 });
-    await regmodule.save()
+
+const axios = require('axios');
+
+
+
+
+
+
+
+
+// const options = {
+//   method: 'POST',
+//   url: 'https://api.sendinblue.com/v3/transactionalSMS/sms',
+//   headers: {
+//     accept: 'application/json',
+//     'content-type': 'application/json',
+//     'api-key': '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'
+//   },
+//   data: {
+//     sender: 'MyShop',
+//     recipient: '33689965433',
+//     content: 'Enter this code:CCJJG8 to validate your account',
+//     type: 'marketing',
+//     tag: 'accountValidation',
+//     webUrl: 'http://requestb.in/173lyyx1',
+//     unicodeEnabled: true,
+//     organisationPrefix: 'MyCompany'
+//   }
+// };
+
+// axios
+//   .request(options)
+//   .then(function (response) {
+//     console.log(response.data);
+//   })
+//   .catch(function (error) {
+//     console.error(error);
+//   });
+
+
+
 
 
     res.send("Successfully submitted! Thank you!");
@@ -27,7 +69,7 @@ const regmodule = new Modules({ name,name2 });
 
 
 app.post("/data", async (req, res) => {
-  const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityname:universityisother } = req.body;
+  const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother } = req.body;
 
   console.log(req.body);
 
@@ -35,7 +77,7 @@ app.post("/data", async (req, res) => {
 
 
 
-  const regmodule = new Modules({ fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother });
+  const regmodule = new Modules({ fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityname:universityisother });
   await regmodule.save()
 
 
