@@ -58,7 +58,7 @@ const zabefest = new mongoose.Schema({
         
     },
 
-    fourthpartricipantname: {
+    fourthparticipantname: {
         type: String,
         
     },
