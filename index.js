@@ -15,55 +15,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors()) 
 
 
-app.post("/testdb", async (req, res) => {
+
+app.post("/deleteticket", async (req, res) => {
 
 console.log(req.body)
- 
+  Modules.deleteOne(req.body)
+  .then(Modules => res.json(Modules))
+  
+  
+  });
 
 
-const axios = require('axios');
+app.get("/getmodulelist", async (req, res) => {
 
 
-
-
-
-
-
-
-// const options = {
-//   method: 'POST',
-//   url: 'https://api.sendinblue.com/v3/transactionalSMS/sms',
-//   headers: {
-//     accept: 'application/json',
-//     'content-type': 'application/json',
-//     'api-key': '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'
-//   },
-//   data: {
-//     sender: 'MyShop',
-//     recipient: '33689965433',
-//     content: 'Enter this code:CCJJG8 to validate your account',
-//     type: 'marketing',
-//     tag: 'accountValidation',
-//     webUrl: 'http://requestb.in/173lyyx1',
-//     unicodeEnabled: true,
-//     organisationPrefix: 'MyCompany'
-//   }
-// };
-
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
-
-
-
-
-
-    res.send("Successfully submitted! Thank you!");
+Modules.find()
+.then(Modules => res.json(Modules))
 
 
 });
