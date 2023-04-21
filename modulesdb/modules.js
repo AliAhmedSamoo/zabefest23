@@ -96,7 +96,10 @@ const zabefest = new mongoose.Schema({
         
     },
 
-   
+    Ereceipt: {
+        type: String,
+        
+    },
 
 
     // email: {
