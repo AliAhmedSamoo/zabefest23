@@ -37,7 +37,7 @@ Modules.find()
 
 
 app.post("/data", async (req, res) => {
-  const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother } = req.body;
+  const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother,Ereceipt } = req.body;
 
   console.log(req.body);
 
@@ -45,7 +45,7 @@ app.post("/data", async (req, res) => {
 
 
 
-  const regmodule = new Modules({ fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityname:universityisother });
+  const regmodule = new Modules({ fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityname:universityisother,Ereceipt });
   await regmodule.save()
 
 
@@ -71,10 +71,10 @@ app.post("/data", async (req, res) => {
   await googleSheets.spreadsheets.values.append({
     auth,
     spreadsheetId,
-    range: "Modules!A:R",
+    range: "Modules!A:S",
     valueInputOption: "USER_ENTERED",
     resource: {
-      values: [["=INDIRECT(ADDRESS(ROW()-1,COLUMN()))+1",ticketid,"Rs. "+fees,	numberofparticipant,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother]],
+      values: [["=INDIRECT(ADDRESS(ROW()-1,COLUMN()))+1",ticketid,"Rs. "+fees,	numberofparticipant,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother,Ereceipt]],
     },
   });
 
