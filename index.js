@@ -37,7 +37,7 @@ Modules.find()
 
 
 app.post("/data", async (req, res) => {
-  const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother,Ereceipt } = req.body;
+  const { fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityisother} = req.body;
 
   console.log(req.body);
 
@@ -45,7 +45,7 @@ app.post("/data", async (req, res) => {
 
 
 
-  const regmodule = new Modules({ fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityname:universityisother,Ereceipt });
+  const regmodule = new Modules({ fees,	numberofparticipant,ticketid,	selectedmodule   ,teamleadername,	universityrollno,secondparticipantname ,secondpartricipantrollno,thirdparticipantname ,thirdpartricipantrollno,fourthparticipantname ,fourthpartricipantrollno,fivthparticipantname ,fivthpartricipantrollno,teamleaderemail,participantWhatsapp,module,universityname:universityisother });
   await regmodule.save()
 
 
